@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 
 export function LandingPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -65,7 +65,7 @@ export function LandingPage() {
           >
             Download on App Store
           </a>
-          <span style={{ fontSize: 13, color: "#999" }}>7-day free trial · no card required</span>
+          <span style={{ fontSize: 13, color: "#999" }}>7-day free trial - no card required</span>
         </div>
         <div style={{ marginTop: 48, height: 300, background: "#fafafa", border: `1px solid ${border}`, borderRadius: 12 }} />
       </section>
@@ -121,7 +121,7 @@ export function LandingPage() {
             >
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <span style={{ fontSize: 15, fontWeight: 600 }}>{faq.q}</span>
-                <span style={{ fontSize: 14, color: "#999", transform: expandedFaq === idx ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>⌄</span>
+                <span style={{ fontSize: 14, color: "#999", transform: expandedFaq === idx ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>v</span>
               </div>
               {expandedFaq === idx && (
                 <p style={{ fontSize: 14, color: gray, margin: "12px 0 0", lineHeight: 1.6 }}>{faq.a}</p>
@@ -133,8 +133,8 @@ export function LandingPage() {
 
       <footer style={{ borderTop: `1px solid ${border}`, padding: "32px 20px" }}>
         <div style={{ maxWidth: 700, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontSize: 13, color: "#999" }}>© 2026 StyleSaver</span>
-          <span style={{ fontSize: 13, color: "#999" }}>Privacy · Terms</span>
+          <span style={{ fontSize: 13, color: "#999" }}>(c) 2026 StyleSaver</span>
+          <span style={{ fontSize: 13, color: "#999" }}>Privacy - Terms</span>
         </div>
       </footer>
     </div>
