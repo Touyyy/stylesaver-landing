@@ -17,34 +17,43 @@ export function LandingPage() {
     { num: "03", title: "Checkout when ready", desc: "See your savings, then buy straight from the app." },
   ];
 
-  const accent = "#3D9970";
+  const accent = "#16C47F";
   const dark = "#1a1a1a";
   const gray = "#666";
   const border = "#e5e5e5";
 
   return (
-    <div style={{ background: "linear-gradient(180deg, rgba(61,153,112,0.12) 0%, rgba(61,153,112,0.04) 60%, #fff 100%)", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: dark }}>
-      <header style={{ position: "sticky", top: 0, background: "rgba(255,255,255,0.7)", backdropFilter: "blur(8px)", zIndex: 40, borderBottom: `1px solid ${border}` }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <span style={{ fontWeight: 600, fontSize: 18 }}>StyleSaver</span>
-          <nav style={{ display: "flex", gap: 28, fontSize: 14, color: gray }}>
-            <a href="#how" style={{ color: gray, textDecoration: "none" }}>How it works</a>
-            <a href="#pricing" style={{ color: gray, textDecoration: "none" }}>Pricing</a>
-            <a href="#faq" style={{ color: gray, textDecoration: "none" }}>FAQ</a>
-          </nav>
-        </div>
-      </header>
+    <div style={{ background: "#fff", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: dark }}>
 
-      <section style={{ maxWidth: 700, margin: "0 auto", padding: "80px 20px 40px", textAlign: "left" }}>
-        <p style={{ fontSize: 13, color: accent, fontWeight: 600, marginBottom: 16 }}>Deal-first outfit finder</p>
-        <h1 style={{ fontSize: 44, fontWeight: 600, lineHeight: 1.2, margin: "0 0 20px", maxWidth: 520 }}>Find your outfit. Watch what it saves you.</h1>
-        <p style={{ fontSize: 17, color: gray, lineHeight: 1.6, margin: "0 0 32px", maxWidth: 480 }}>StyleSaver curates deals from brands you already shop and shows you exactly what you're saving, in real time.</p>
-        <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
-          <a href="https://apps.apple.com/app/stylesaver" style={{ background: dark, color: "#fff", padding: "12px 24px", borderRadius: 8, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>Download on App Store</a>
-          <span style={{ fontSize: 13, color: "#999" }}>7-day free trial - no card required</span>
-        </div>
-        <div style={{ marginTop: 48, height: 300, background: "#fafafa", border: `1px solid ${border}`, borderRadius: 12 }} />
-      </section>
+      <div style={{ background: "linear-gradient(180deg, rgba(22,196,127,0.14) 0%, rgba(22,196,127,0.05) 70%, #fff 100%)" }}>
+        <header style={{ position: "sticky", top: 0, background: "rgba(255,255,255,0.7)", backdropFilter: "blur(8px)", zIndex: 40, borderBottom: `1px solid ${border}` }}>
+          <div style={{ maxWidth: 1000, margin: "0 auto", padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span style={{ fontWeight: 600, fontSize: 18 }}>StyleSaver</span>
+            <nav style={{ display: "flex", gap: 28, fontSize: 14, color: gray }}>
+              <a href="#how" style={{ color: gray, textDecoration: "none" }}>How it works</a>
+              <a href="#pricing" style={{ color: gray, textDecoration: "none" }}>Pricing</a>
+              <a href="#faq" style={{ color: gray, textDecoration: "none" }}>FAQ</a>
+            </nav>
+          </div>
+        </header>
+
+        <section style={{ maxWidth: 700, margin: "0 auto", padding: "80px 20px 40px", textAlign: "left" }}>
+          <p style={{ fontSize: 13, color: accent, fontWeight: 600, marginBottom: 16 }}>Deal-first outfit finder</p>
+          <h1 style={{ fontSize: 44, fontWeight: 600, lineHeight: 1.2, margin: "0 0 20px", maxWidth: 520 }}>
+            Find your outfit. Watch what it saves you.
+          </h1>
+          <p style={{ fontSize: 17, color: gray, lineHeight: 1.6, margin: "0 0 32px", maxWidth: 480 }}>
+            StyleSaver curates deals from brands you already shop and shows you exactly what you're saving, in real time.
+          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+            <a href="https://apps.apple.com/app/stylesaver" style={{ background: dark, color: "#fff", padding: "12px 24px", borderRadius: 8, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>
+              Download on App Store
+            </a>
+            <span style={{ fontSize: 13, color: "#999" }}>7-day free trial - no card required</span>
+          </div>
+          <div style={{ marginTop: 48, height: 300, background: "#fafafa", border: `1px solid ${border}`, borderRadius: 12 }} />
+        </section>
+      </div>
 
       <section id="how" style={{ maxWidth: 700, margin: "0 auto", padding: "60px 20px", borderTop: `1px solid ${border}` }}>
         <p style={{ fontSize: 13, color: "#999", marginBottom: 32 }}>From link to closet in three steps.</p>
