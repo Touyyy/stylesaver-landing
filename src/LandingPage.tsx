@@ -23,8 +23,8 @@ export function LandingPage() {
   const border = "#e5e5e5";
 
   return (
-    <div style={{ background: "#fff", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: dark }}>
-      <header style={{ position: "sticky", top: 0, background: "rgba(255,255,255,0.95)", backdropFilter: "blur(8px)", zIndex: 40, borderBottom: `1px solid ${border}` }}>
+    <div style={{ background: "linear-gradient(180deg, rgba(61,153,112,0.12) 0%, rgba(61,153,112,0.04) 60%, #fff 100%)", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: dark }}>
+      <header style={{ position: "sticky", top: 0, background: "rgba(255,255,255,0.7)", backdropFilter: "blur(8px)", zIndex: 40, borderBottom: `1px solid ${border}` }}>
         <div style={{ maxWidth: 1000, margin: "0 auto", padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontWeight: 600, fontSize: 18 }}>StyleSaver</span>
           <nav style={{ display: "flex", gap: 28, fontSize: 14, color: gray }}>
