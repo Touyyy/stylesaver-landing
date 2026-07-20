@@ -1,4 +1,5 @@
-﻿import { useState } from "react";
+﻿@'
+import { useState } from "react";
 
 export function LandingPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -140,3 +141,4 @@ export function LandingPage() {
     </div>
   );
 }
+'@ | Set-Content -Path src\LandingPage.tsx -Encoding utf8
