@@ -1,4 +1,3 @@
-import { ChevronDown, Heart, Zap, TrendingDown, Star } from "lucide-react";
 import { useState } from "react";
 
 export function LandingPage() {
@@ -27,348 +26,115 @@ export function LandingPage() {
     },
   ];
 
+  const steps = [
+    { num: "01", title: "Browse the daily edit", desc: "Curated deals from 26+ brands you already shop." },
+    { num: "02", title: "Save what you like", desc: "Build outfits and keep them in your closet." },
+    { num: "03", title: "Checkout when ready", desc: "See your savings, then buy straight from the app." },
+  ];
+
+  const accent = "#3D9970";
+  const dark = "#1a1a1a";
+  const gray = "#666";
+  const border = "#e5e5e5";
+
   return (
-    <div className="bg-white min-h-screen">
-      {/* Header */}
-      <header className="sticky top-0 bg-white/95 backdrop-blur-md z-40 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SS</span>
-            </div>
-            <span className="font-bold text-xl text-gray-900">StyleSaver</span>
-          </div>
-          <nav className="hidden md:flex gap-8 text-sm text-gray-600">
-            <a href="#features" className="hover:text-primary">
-              Features
-            </a>
-            <a href="#pricing" className="hover:text-primary">
-              Pricing
-            </a>
-            <a href="#faq" className="hover:text-primary">
-              FAQ
-            </a>
+    <div style={{ background: "#fff", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", color: dark }}>
+      <header style={{ position: "sticky", top: 0, background: "rgba(255,255,255,0.95)", backdropFilter: "blur(8px)", zIndex: 40, borderBottom: `1px solid ${border}` }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontWeight: 600, fontSize: 18 }}>StyleSaver</span>
+          <nav style={{ display: "flex", gap: 28, fontSize: 14, color: gray }}>
+            <a href="#how" style={{ color: gray, textDecoration: "none" }}>How it works</a>
+            <a href="#pricing" style={{ color: gray, textDecoration: "none" }}>Pricing</a>
+            <a href="#faq" style={{ color: gray, textDecoration: "none" }}>FAQ</a>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-primary/5 to-white py-20 md:py-32">
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Shop Smarter.
-              <br />
-              Save More.
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Discover deals from your favorite brands, build outfits, and see exactly how much you're saving in real time.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://apps.apple.com/app/stylesaver"
-                className="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition inline-flex items-center justify-center gap-2"
-              >
-                Download on App Store
-              </a>
-              <button className="px-8 py-4 border-2 border-gray-300 text-gray-900 font-semibold rounded-full hover:border-primary hover:text-primary transition">
-                Learn More
-              </button>
-            </div>
-            <p className="text-sm text-gray-600 mt-6">
-              7-day free trial. No credit card required.
-            </p>
-          </div>
-
-          {/* Hero Image Placeholder */}
-          <div className="mt-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl aspect-video flex items-center justify-center">
-            <p className="text-gray-500">App Preview (Screenshot or Video)</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-            Why StyleSaver?
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Zap className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Daily Deals
-              </h3>
-              <p className="text-gray-600">
-                We curate the best deals from 26+ brands you already love. New items every day.
-              </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <Heart className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Save Outfits
-              </h3>
-              <p className="text-gray-600">
-                Build complete outfits, save them, and come back to checkout whenever you're ready.
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
-                <TrendingDown className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Real Savings
-              </h3>
-              <p className="text-gray-600">
-                See exactly how much you're saving on every item and outfit in real time.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-            How It Works
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              {
-                num: "1",
-                title: "Browse",
-                desc: "Scroll through curated deals from your favorite brands",
-              },
-              {
-                num: "2",
-                title: "Heart",
-                desc: "Save items you love to your favorites",
-              },
-              {
-                num: "3",
-                title: "Build",
-                desc: "Create outfits and watch your savings grow",
-              },
-              {
-                num: "4",
-                title: "Checkout",
-                desc: "Shop when you're ready, straight from the app",
-              },
-            ].map((step, idx) => (
-              <div key={idx} className="text-center">
-                <div className="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {step.num}
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-gray-600">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-            Simple Pricing
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            {/* Monthly */}
-            <div className="border border-gray-200 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Monthly</h3>
-              <p className="text-gray-600 text-sm mb-6">Perfect for trying it out</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold text-primary">$4.99</span>
-                <span className="text-gray-600 text-sm">/month</span>
-              </div>
-              <button className="w-full py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary/5 transition">
-                Download App
-              </button>
-              <p className="text-xs text-gray-600 text-center mt-4">
-                7 days free, then $4.99/month
-              </p>
-            </div>
-
-            {/* Annual */}
-            <div className="border-2 border-primary rounded-2xl p-8 relative bg-primary/5">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
-                Best Value
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Annual</h3>
-              <p className="text-gray-600 text-sm mb-6">Save 50% with yearly plan</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold text-primary">$29.99</span>
-                <span className="text-gray-600 text-sm">/year</span>
-              </div>
-              <button className="w-full py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition">
-                Download App
-              </button>
-              <p className="text-xs text-gray-600 text-center mt-4">
-                7 days free, then $29.99/year
-              </p>
-            </div>
-          </div>
-
-          <p className="text-center text-gray-600 text-sm mt-12">
-            Cancel anytime. No questions asked.
-          </p>
-        </div>
-      </section>
-
-      {/* Social Proof / Stats */}
-      <section className="py-20 bg-primary/5">
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">26+</div>
-              <p className="text-gray-600">Brands & Retailers</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">$1000s</div>
-              <p className="text-gray-600">Saved by Users Monthly</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">7</div>
-              <p className="text-gray-600">Day Free Trial</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-5">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-            Frequently Asked
-          </h2>
-
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <button
-                key={idx}
-                onClick={() =>
-                  setExpandedFaq(expandedFaq === idx ? null : idx)
-                }
-                className="w-full text-left p-6 border border-gray-200 rounded-lg hover:border-primary transition"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-gray-900">{faq.q}</h3>
-                  <ChevronDown
-                    className={`w-5 h-5 text-gray-600 transition-transform ${
-                      expandedFaq === idx ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
-                {expandedFaq === idx && (
-                  <p className="text-gray-600 text-sm mt-4">{faq.a}</p>
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary/80">
-        <div className="max-w-4xl mx-auto px-5 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Start Saving?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Try StyleSaver free for 7 days. Download now.
-          </p>
-          <a
+      <section style={{ maxWidth: 700, margin: "0 auto", padding: "80px 20px 40px", textAlign: "left" }}>
+        <p style={{ fontSize: 13, color: accent, fontWeight: 600, marginBottom: 16 }}>Deal-first outfit finder</p>
+        <h1 style={{ fontSize: 44, fontWeight: 600, lineHeight: 1.2, margin: "0 0 20px", maxWidth: 520 }}>
+          Find your outfit. Watch what it saves you.
+        </h1>
+        <p style={{ fontSize: 17, color: gray, lineHeight: 1.6, margin: "0 0 32px", maxWidth: 480 }}>
+          StyleSaver curates deals from brands you already shop and shows you exactly what you're saving, in real time.
+        </p>
+        <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+          
             href="https://apps.apple.com/app/stylesaver"
-            className="inline-block px-8 py-4 bg-white text-primary font-semibold rounded-full hover:bg-gray-100 transition"
+            style={{ background: dark, color: "#fff", padding: "12px 24px", borderRadius: 8, fontSize: 14, fontWeight: 600, textDecoration: "none" }}
           >
             Download on App Store
+          </a>
+          <span style={{ fontSize: 13, color: "#999" }}>7-day free trial · no card required</span>
+        </div>
+        <div style={{ marginTop: 48, height: 300, background: "#fafafa", border: `1px solid ${border}`, borderRadius: 12 }} />
+      </section>
+
+      <section id="how" style={{ maxWidth: 700, margin: "0 auto", padding: "60px 20px", borderTop: `1px solid ${border}` }}>
+        <p style={{ fontSize: 13, color: "#999", marginBottom: 32 }}>From link to closet in three steps.</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+          {steps.map((step) => (
+            <div key={step.num} style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
+              <span style={{ fontSize: 22, fontWeight: 600, color: "#ccc", minWidth: 36 }}>{step.num}</span>
+              <div>
+                <p style={{ fontSize: 16, fontWeight: 600, margin: "0 0 4px" }}>{step.title}</p>
+                <p style={{ fontSize: 14, color: gray, margin: 0 }}>{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="pricing" style={{ maxWidth: 700, margin: "0 auto", padding: "60px 20px", borderTop: `1px solid ${border}` }}>
+        <p style={{ fontSize: 13, color: "#999", marginBottom: 24 }}>One price. That's it.</p>
+        <div style={{ border: `1px solid ${border}`, borderRadius: 12, padding: 32, maxWidth: 380 }}>
+          <p style={{ fontSize: 16, fontWeight: 600, margin: "0 0 8px" }}>StyleSaver</p>
+          <p style={{ fontSize: 32, fontWeight: 600, margin: "0 0 8px" }}>
+            $4.99<span style={{ fontSize: 15, color: gray, fontWeight: 400 }}> /month, or $29.99/year</span>
+          </p>
+          <p style={{ fontSize: 14, color: gray, margin: "0 0 24px" }}>7 days free. Cancel anytime, no questions asked.</p>
+          
+            href="https://apps.apple.com/app/stylesaver"
+            style={{ display: "inline-block", background: dark, color: "#fff", padding: "10px 20px", borderRadius: 8, fontSize: 14, fontWeight: 600, textDecoration: "none" }}
+          >
+            Start free trial
           </a>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="max-w-6xl mx-auto px-5">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">SS</span>
-                </div>
-                <span className="font-bold text-white">StyleSaver</span>
+      <section id="faq" style={{ maxWidth: 700, margin: "0 auto", padding: "60px 20px", borderTop: `1px solid ${border}` }}>
+        <p style={{ fontSize: 13, color: "#999", marginBottom: 24 }}>Questions, answered straight.</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          {faqs.map((faq, idx) => (
+            <button
+              key={idx}
+              onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+              style={{
+                textAlign: "left",
+                padding: "18px 20px",
+                border: `1px solid ${border}`,
+                borderRadius: 10,
+                background: "#fff",
+                cursor: "pointer",
+                fontFamily: "inherit",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <span style={{ fontSize: 15, fontWeight: 600 }}>{faq.q}</span>
+                <span style={{ fontSize: 14, color: "#999", transform: expandedFaq === idx ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>⌄</span>
               </div>
-              <p className="text-sm">Shop smarter. Save more.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Product</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    Blog
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary">
-                    Terms
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-sm">
-            <p>&copy; 2026 StyleSaver. All rights reserved.</p>
-          </div>
+              {expandedFaq === idx && (
+                <p style={{ fontSize: 14, color: gray, margin: "12px 0 0", lineHeight: 1.6 }}>{faq.a}</p>
+              )}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <footer style={{ borderTop: `1px solid ${border}`, padding: "32px 20px" }}>
+        <div style={{ maxWidth: 700, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: 13, color: "#999" }}>© 2026 StyleSaver</span>
+          <span style={{ fontSize: 13, color: "#999" }}>Privacy · Terms</span>
         </div>
       </footer>
     </div>
