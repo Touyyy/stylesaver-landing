@@ -3,7 +3,7 @@ import homepageImg from "./images/homepage.png";
 import buildImg from "./images/build.png";
 import savedFavImg from "./images/saved-fav.png";
 import savedOutfitsImg from "./images/saved-outfits.png";
-import ssLogo from "./images/ss.png";
+import ssLogo from "./images/SS.png";
 
 export function LandingPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
