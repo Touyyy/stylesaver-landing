@@ -146,7 +146,6 @@ export function LandingPage() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 10,
                 textDecoration: "none",
               }}
             >
@@ -155,16 +154,6 @@ export function LandingPage() {
                 alt="StyleSaver logo"
                 style={{ width: 34, height: 34, display: "block" }}
               />
-              <span
-                style={{
-                  color: dark,
-                  fontWeight: 700,
-                  fontSize: 18,
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                StyleSaver
-              </span>
             </a>
 
             <nav
