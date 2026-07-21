@@ -168,127 +168,130 @@ export function LandingPage() {
         <main id="top">
           <section
             style={{
-              maxWidth: 700,
+              maxWidth: 1000,
               margin: "0 auto",
               padding: "80px 20px 40px",
-              textAlign: "left",
+              display: "flex",
+              alignItems: "center",
+              gap: 48,
+              flexWrap: "wrap",
             }}
           >
-            <p
-              style={{
-                fontSize: 13,
-                color: accent,
-                fontWeight: 700,
-                margin: "0 0 16px",
-                letterSpacing: "0.01em",
-              }}
-            >
-              All your favorite brands. One place.
-            </p>
-
-            <h1
-              style={{
-                fontSize: "clamp(38px, 7vw, 56px)",
-                fontWeight: 650,
-                lineHeight: 1.08,
-                letterSpacing: "-0.04em",
-                margin: "0 0 22px",
-                maxWidth: 620,
-              }}
-            >
-              Find the deals. Build the outfit. Save the difference.
-            </h1>
-
-            <p
-              style={{
-                fontSize: 17,
-                color: gray,
-                lineHeight: 1.65,
-                margin: "0 0 32px",
-                maxWidth: 540,
-              }}
-            >
-              StyleSaver brings together sale items from the brands you already
-              shop, so you can discover what’s worth buying without opening ten
-              different apps.
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 20,
-                flexWrap: "wrap",
-              }}
-            >
-              <a
-                href={appStoreUrl}
-                target="_blank"
-                rel="noreferrer"
+            <div style={{ flex: "1 1 460px", minWidth: 300, textAlign: "left" }}>
+              <p
                 style={{
-                  background: dark,
-                  color: "#fff",
-                  padding: "13px 24px",
-                  borderRadius: 9,
-                  fontSize: 14,
-                  fontWeight: 650,
-                  textDecoration: "none",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                  fontSize: 13,
+                  color: accent,
+                  fontWeight: 700,
+                  margin: "0 0 16px",
+                  letterSpacing: "0.01em",
                 }}
               >
-                Download on the App Store
-              </a>
+                All your favorite brands. One place.
+              </p>
 
-              <span style={{ fontSize: 13, color: lightGray }}>
-                Try it free for 5 days
-              </span>
-            </div>
-          </div>
+              <h1
+                style={{
+                  fontSize: "clamp(38px, 7vw, 56px)",
+                  fontWeight: 650,
+                  lineHeight: 1.08,
+                  letterSpacing: "-0.04em",
+                  margin: "0 0 22px",
+                }}
+              >
+                Find the deals. Build the outfit. Save the difference.
+              </h1>
 
-          <div style={{ flex: "1 1 300px", minWidth: 260, maxWidth: 340, margin: "0 auto" }}>
-            <div
-              style={{
-                borderRadius: 20,
-                overflow: "hidden",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
-                border: `1px solid ${border}`,
-              }}
-            >
-              <img
-                src={heroImages[activeImage]}
-                alt="StyleSaver app screenshot"
-                style={{ width: "100%", display: "block" }}
-              />
-            </div>
+              <p
+                style={{
+                  fontSize: 17,
+                  color: gray,
+                  lineHeight: 1.65,
+                  margin: "0 0 32px",
+                  maxWidth: 480,
+                }}
+              >
+                StyleSaver brings together sale items from the brands you already
+                shop, so you can discover what’s worth buying without opening ten
+                different apps.
+              </p>
 
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: 8,
-                marginTop: 16,
-              }}
-            >
-              {heroImages.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveImage(idx)}
-                  aria-label={`Show image ${idx + 1}`}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 20,
+                  flexWrap: "wrap",
+                }}
+              >
+                <a
+                  href={appStoreUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                    background: activeImage === idx ? accent : "#ddd",
-                    transition: "background 0.2s ease",
+                    background: dark,
+                    color: "#fff",
+                    padding: "13px 24px",
+                    borderRadius: 9,
+                    fontSize: 14,
+                    fontWeight: 650,
+                    textDecoration: "none",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
                   }}
-                />
-              ))}
+                >
+                  Download on the App Store
+                </a>
+
+                <span style={{ fontSize: 13, color: lightGray }}>
+                  Try it free for 5 days
+                </span>
+              </div>
             </div>
-          </div>
-        </section>
+
+            <div style={{ flex: "1 1 300px", minWidth: 260, maxWidth: 340, margin: "0 auto" }}>
+              <div
+                style={{
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
+                  border: `1px solid ${border}`,
+                }}
+              >
+                <img
+                  src={heroImages[activeImage]}
+                  alt="StyleSaver app screenshot"
+                  style={{ width: "100%", display: "block" }}
+                />
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: 8,
+                  marginTop: 16,
+                }}
+              >
+                {heroImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImage(idx)}
+                    aria-label={`Show image ${idx + 1}`}
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      border: "none",
+                      padding: 0,
+                      cursor: "pointer",
+                      background: activeImage === idx ? accent : "#ddd",
+                      transition: "background 0.2s ease",
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
         </main>
       </div>
 
