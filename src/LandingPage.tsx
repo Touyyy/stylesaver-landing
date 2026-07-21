@@ -105,11 +105,10 @@ export function LandingPage() {
 
   return (
     <div
-      style={{
+        style={{
         background: "#fff",
         minHeight: "100vh",
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         color: dark,
       }}
     >
@@ -928,18 +927,21 @@ export function LandingPage() {
             <strong style={{ color: dark }}>
               Free trials and subscriptions:
             </strong>{" "}
-            Eligible users may receive a 5-day free trial. Unless canceled before
-            the trial ends, the subscription will automatically renew using the plan
-            selected through Apple’s App Store. Subscription pricing and renewal
-            terms are shown before purchase.
+            E Eligible users may receive a 5-day free trial. To avoid being charged,
+  you must cancel at least 24 hours before the trial ends. If you do not
+  cancel in time, your subscription will automatically renew and you will
+  be charged for the plan you selected through Apple's App Store.
+  Subscription pricing and renewal terms are shown before purchase.
           </p>
 
           <p>
             <strong style={{ color: dark }}>Cancellation:</strong>{" "}
-            You can manage or cancel your subscription through your Apple ID
-            subscription settings. Deleting your StyleSaver account or removing
-            the app from your device does not automatically cancel your
-            subscription.
+              To cancel, go to Settings on your iPhone, tap your name, select
+  Subscriptions, choose StyleSaver, and tap Cancel Subscription. You must
+  cancel at least 24 hours before your current period ends to avoid being
+  charged for the next one. Deleting your StyleSaver account or removing
+  the app from your device does not automatically cancel your
+  subscription — you must cancel through Apple's subscription settings.
           </p>
 
           <p>
