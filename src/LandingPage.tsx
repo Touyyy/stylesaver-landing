@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
+import homepageImg from "./images/homepage.png";
+import buildImg from "./images/build.png";
+import savedFavImg from "./images/saved-fav.png";
+import savedOutfitsImg from "./images/saved-outfits.png";
 
 export function LandingPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [privacyExpanded, setPrivacyExpanded] = useState(false);
   const [termsExpanded, setTermsExpanded] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
+
+  const heroImages = [homepageImg, buildImg, savedOutfitsImg, savedFavImg];
 
   useEffect(() => {
     try {
@@ -236,25 +243,52 @@ export function LandingPage() {
                 Try it free for 5 days
               </span>
             </div>
+          </div>
+
+          <div style={{ flex: "1 1 300px", minWidth: 260, maxWidth: 340, margin: "0 auto" }}>
+            <div
+              style={{
+                borderRadius: 20,
+                overflow: "hidden",
+                boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
+                border: `1px solid ${border}`,
+              }}
+            >
+              <img
+                src={heroImages[activeImage]}
+                alt="StyleSaver app screenshot"
+                style={{ width: "100%", display: "block" }}
+              />
+            </div>
 
             <div
               style={{
-                marginTop: 48,
-                height: 340,
-                background: "rgba(255,255,255,0.68)",
-                border: `1px solid ${border}`,
-                borderRadius: 16,
-                boxShadow: "0 20px 60px rgba(0,0,0,0.05)",
                 display: "flex",
-                alignItems: "center",
                 justifyContent: "center",
-                color: "#bbb",
-                fontSize: 14,
+                gap: 8,
+                marginTop: 16,
               }}
             >
-              App preview
+              {heroImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImage(idx)}
+                  aria-label={`Show image ${idx + 1}`}
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    border: "none",
+                    padding: 0,
+                    cursor: "pointer",
+                    background: activeImage === idx ? accent : "#ddd",
+                    transition: "background 0.2s ease",
+                  }}
+                />
+              ))}
             </div>
-          </section>
+          </div>
+        </section>
         </main>
       </div>
 
