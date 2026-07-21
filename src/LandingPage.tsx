@@ -154,7 +154,7 @@ export function LandingPage() {
                 letterSpacing: "-0.02em",
               }}
             >
-              <img src={ssLogo} alt="StyleSaver logo" style={{ height: 48, width: "auto" }} />
+              <img src={ssLogo} alt="StyleSaver logo" style={{ height: 44, width: "auto" }} />
               StyleSaver
             </a>
 
