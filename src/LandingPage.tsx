@@ -142,21 +142,16 @@ export function LandingPage() {
             }}
           >
             <a
-              href="#top"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                color: dark,
-                fontWeight: 700,
-                fontSize: 24,
-                textDecoration: "none",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              <img src={ssLogo} alt="StyleSaver logo" style={{ height: 44, width: "auto" }} />
-              StyleSaver
-            </a>
+  href="#top"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    textDecoration: "none",
+  }}
+>
+  <img src={ssLogo} alt="StyleSaver logo" style={{ height: 44, width: "auto" }} />
+</a>
 
             <nav
               style={{
