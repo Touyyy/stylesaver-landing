@@ -1,7 +1,30 @@
-﻿import { useState } from "react";
+﻿import { useState, useEffect } from "react";
 
 export function LandingPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [privacyExpanded, setPrivacyExpanded] = useState(false);
+  const [termsExpanded, setTermsExpanded] = useState(false);
+
+  useEffect(() => {
+    try {
+      const p = localStorage.getItem("privacyExpanded");
+      if (p !== null) setPrivacyExpanded(p === "true");
+      const t = localStorage.getItem("termsExpanded");
+      if (t !== null) setTermsExpanded(t === "true");
+    } catch (e) {}
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("privacyExpanded", String(privacyExpanded));
+    } catch (e) {}
+  }, [privacyExpanded]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("termsExpanded", String(termsExpanded));
+    } catch (e) {}
+  }, [termsExpanded]);
 
   const faqs = [
     {
@@ -31,247 +54,349 @@ export function LandingPage() {
       num: "01",
       title: "Discover what’s on sale",
       desc: "Browse a curated selection of deals from the brands and stores you already shop.",
-    },
-    {
-      num: "02",
-      title: "Build your outfit",
-      desc: "Mix and match sale items across different brands and save your favorites.",
-    },
-    {
-      num: "03",
-      title: "Shop when you’re ready",
-      desc: "See the full price, your total savings, and buy directly from the retailer.",
-    },
-  ];
-
-  const accent = "#16C47F";
-  const dark = "#1a1a1a";
-  const gray = "#666";
-  const lightGray = "#999";
-  const border = "#e5e5e5";
-
-  const appStoreUrl = "https://apps.apple.com/app/stylesaver";
-
-  return (
-    <div
-      style={{
-        background: "#fff",
-        minHeight: "100vh",
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        color: dark,
-      }}
-    >
-      <div
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(22,196,127,0.14) 0%, rgba(22,196,127,0.05) 70%, #fff 100%)",
-        }}
-      >
-        <header
-          style={{
-            position: "sticky",
-            top: 0,
-            background: "rgba(255,255,255,0.78)",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            zIndex: 40,
-            borderBottom: `1px solid ${border}`,
-          }}
-        >
-          <div
-            style={{
-              maxWidth: 1000,
-              margin: "0 auto",
-              padding: "16px 20px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 24,
-            }}
-          >
-            <a
-              href="#top"
-              style={{
-                color: dark,
-                fontWeight: 700,
-                fontSize: 18,
-                textDecoration: "none",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              StyleSaver
-            </a>
-
-            <nav
-              style={{
-                display: "flex",
-                gap: 24,
-                fontSize: 14,
-                color: gray,
-              }}
-            >
-              <a
-                href="#how"
-                style={{ color: gray, textDecoration: "none" }}
-              >
-                How it works
-              </a>
-
-              <a
-                href="#pricing"
-                style={{ color: gray, textDecoration: "none" }}
-              >
-                Pricing
-              </a>
-
-              <a
-                href="#faq"
-                style={{ color: gray, textDecoration: "none" }}
-              >
-                FAQ
-              </a>
-            </nav>
-          </div>
-        </header>
-
-        <main id="top">
-          <section
-            style={{
-              maxWidth: 700,
-              margin: "0 auto",
-              padding: "80px 20px 40px",
-              textAlign: "left",
-            }}
-          >
-            <p
-              style={{
-                fontSize: 13,
-                color: accent,
-                fontWeight: 700,
-                margin: "0 0 16px",
-                letterSpacing: "0.01em",
-              }}
-            >
-              All your favorite brands. One place.
-            </p>
-
-            <h1
-              style={{
-                fontSize: "clamp(38px, 7vw, 56px)",
-                fontWeight: 650,
-                lineHeight: 1.08,
-                letterSpacing: "-0.04em",
-                margin: "0 0 22px",
-                maxWidth: 620,
-              }}
-            >
-              Find the deals. Build the outfit. Save the difference.
-            </h1>
-
-            <p
-              style={{
-                fontSize: 17,
-                color: gray,
-                lineHeight: 1.65,
-                margin: "0 0 32px",
-                maxWidth: 540,
-              }}
-            >
-              StyleSaver brings together sale items from the brands you already
-              shop, so you can discover what’s worth buying without opening ten
-              different apps.
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 20,
-                flexWrap: "wrap",
-              }}
-            >
-              <a
-                href={appStoreUrl}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  background: dark,
-                  color: "#fff",
-                  padding: "13px 24px",
-                  borderRadius: 9,
-                  fontSize: 14,
-                  fontWeight: 650,
-                  textDecoration: "none",
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                }}
-              >
-                Download on the App Store
-              </a>
-
-              <span style={{ fontSize: 13, color: lightGray }}>
-                Try it free for 5 days
-              </span>
-            </div>
-
-            <div
-              style={{
-                marginTop: 48,
-                height: 340,
-                background: "rgba(255,255,255,0.68)",
-                border: `1px solid ${border}`,
-                borderRadius: 16,
-                boxShadow: "0 20px 60px rgba(0,0,0,0.05)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#bbb",
-                fontSize: 14,
-              }}
-            >
-              App preview
-            </div>
-          </section>
-        </main>
-      </div>
-
       <section
-        id="how"
+        id="privacy"
         style={{
           maxWidth: 700,
           margin: "0 auto",
-          padding: "72px 20px",
+          padding: "24px 20px",
           borderTop: `1px solid ${border}`,
           scrollMarginTop: 80,
         }}
       >
-        <p
+        <button
+          type="button"
+          aria-expanded={privacyExpanded}
+          onClick={() => setPrivacyExpanded(!privacyExpanded)}
           style={{
-            fontSize: 13,
-            color: lightGray,
-            margin: "0 0 32px",
-          }}
-        >
-          Your shopping starting point.
-        </p>
-
-        <div
-          style={{
+            width: "100%",
             display: "flex",
-            flexDirection: "column",
-            gap: 32,
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 20,
+            padding: "20px 0",
+            border: "none",
+            background: "transparent",
+            cursor: "pointer",
+            textAlign: "left",
+            fontFamily: "inherit",
+            color: dark,
           }}
         >
-          {steps.map((step) => (
-            <div
-              key={step.num}
+          <div>
+            <h2
               style={{
-                display: "flex",
-                gap: 22,
-                alignItems: "flex-start",
+                fontSize: 22,
+                fontWeight: 650,
+                letterSpacing: "-0.02em",
+                margin: "0 0 5px",
               }}
             >
-              <span
+              Privacy Policy
+            </h2>
+
+            <p
+              style={{
+                fontSize: 13,
+                color: lightGray,
+                margin: 0,
+              }}
+            >
+              See how StyleSaver collects and uses your information.
+            </p>
+          </div>
+
+          <span
+            aria-hidden="true"
+            style={{
+              fontSize: 22,
+              color: lightGray,
+              lineHeight: 1,
+              transform: privacyExpanded
+                ? "rotate(45deg)"
+                : "rotate(0deg)",
+              transition: "transform 0.2s ease",
+            }}
+          >
+            +
+          </span>
+        </button>
+
+        <div
+          aria-hidden={!privacyExpanded}
+          style={{
+            fontSize: 14,
+            color: gray,
+            lineHeight: 1.75,
+            maxHeight: privacyExpanded ? 1200 : 0,
+            overflow: "hidden",
+            transition: "max-height 300ms ease, opacity 200ms ease, padding 300ms ease",
+            opacity: privacyExpanded ? 1 : 0,
+            paddingTop: privacyExpanded ? 12 : 0,
+            paddingBottom: privacyExpanded ? 40 : 0,
+          }}
+        >
+          <p>
+            StyleSaver respects your privacy. This policy explains what
+            information we collect, why we collect it, and the choices available
+            to you.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Information we collect:
+            </strong>{" "}
+            We may collect your email address, account information, saved items,
+            outfits, preferences, and basic information about how you use
+            StyleSaver. This information helps us operate the app, improve its
+            features, and provide a more useful shopping experience.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              How we use your information:
+            </strong>{" "}
+            We use your information to maintain your account, save your
+            activity, improve StyleSaver, provide customer support, and
+            understand how people use the app. We do not sell your personal
+            information.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Subscriptions and payments:
+            </strong>{" "}
+            StyleSaver subscriptions are purchased and managed through Apple’s App
+            Store. Apple processes your payment information, and StyleSaver does not
+            receive or store your complete payment-card details.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Retailer links:</strong>{" "}
+            StyleSaver helps you discover products and promotions, but purchases
+            are completed on third-party retailer websites or apps. Those retailers
+            operate independently and have their own terms and privacy practices.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Analytics and service providers:
+            </strong>{" "}
+            We may use trusted service providers to support app functionality,
+            analytics, account management, and customer service. These providers
+            may only use information as necessary to perform services on our
+            behalf.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Your choices:</strong>{" "}
+            You may request access to or deletion of your StyleSaver account and
+            associated personal information by contacting{" "}
+            <a
+              href="mailto:support@stylesaverapp.com"
+              style={{ color: dark }}
+            >
+              support@stylesaverapp.com
+            </a>
+            . Deleting the app does not automatically cancel an active
+            subscription.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Policy updates:</strong>{" "}
+            We may update this policy as StyleSaver evolves. Any changes will be
+            posted here with an updated effective date.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="terms"
+        style={{
+          maxWidth: 700,
+          margin: "0 auto",
+          padding: "24px 20px",
+          borderTop: `1px solid ${border}`,
+          scrollMarginTop: 80,
+        }}
+      >
+        <button
+          type="button"
+          aria-expanded={termsExpanded}
+          onClick={() => setTermsExpanded(!termsExpanded)}
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 20,
+            padding: "20px 0",
+            border: "none",
+            background: "transparent",
+            cursor: "pointer",
+            textAlign: "left",
+            fontFamily: "inherit",
+            color: dark,
+          }}
+        <div
+          aria-hidden={!termsExpanded}
+          style={{
+            fontSize: 14,
+            color: gray,
+            lineHeight: 1.75,
+            maxHeight: termsExpanded ? 1400 : 0,
+            overflow: "hidden",
+            transition: "max-height 300ms ease, opacity 200ms ease, padding 300ms ease",
+            opacity: termsExpanded ? 1 : 0,
+            paddingTop: termsExpanded ? 12 : 0,
+            paddingBottom: termsExpanded ? 40 : 0,
+          }}
+        >
+          <p>
+            These Terms of Service govern your access to and use of StyleSaver. By
+            creating an account, starting a trial, or using the app, you agree to
+            these terms.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Using StyleSaver:</strong>{" "}
+            StyleSaver is designed to help users discover sale items, organize
+            outfits, compare listed prices, and visit retailers to complete
+            purchases. You must use the service only for lawful personal purposes.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Product and pricing information:
+            </strong>{" "}
+            We work to keep product details, availability, promotions, and pricing
+            accurate, but retailer information may change at any time. The price and
+            terms displayed by the retailer at checkout control the final purchase.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Retailer transactions:
+            </strong>{" "}
+            StyleSaver does not sell the products displayed in the app. Purchases
+            are completed directly through third-party retailers. Product quality,
+            shipping, returns, refunds, warranties, and customer service are handled
+            by the applicable retailer.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Free trials and subscriptions:
+            </strong>{" "}
+            Eligible users may receive a 5-day free trial. Unless canceled before
+            the trial ends, the subscription will automatically renew using the plan
+            selected through Apple’s App Store. Subscription pricing and renewal
+            terms are shown before purchase.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Cancellation:</strong>{" "}
+            You can manage or cancel your subscription through your Apple ID
+            subscription settings. Deleting your StyleSaver account or removing
+            the app from your device does not automatically cancel your
+            subscription.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Accounts:</strong>{" "}
+            You are responsible for keeping your login information secure and
+            for activity completed through your account. Contact us if you
+            believe your account has been accessed without permission.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Intellectual property:
+            </strong>{" "}
+            StyleSaver’s branding, design, software, content, and original materials
+            are owned by StyleSaver or its licensors. Retailer names, trademarks,
+            product images, and other third-party materials belong to their
+            respective owners.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Service availability:
+            </strong>{" "}
+            We may update, modify, pause, or discontinue parts of StyleSaver as the
+            product evolves. We do not guarantee that every feature, retailer,
+            product, or promotion will always be available.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>
+              Limitation of liability:
+            </strong>{" "}
+            To the fullest extent permitted by law, StyleSaver is not responsible
+            for losses arising from retailer transactions, unavailable products,
+            incorrect third-party information, service interruptions, or decisions
+            made using information displayed in the app.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Changes to these terms:</strong>{" "}
+            We may update these terms as StyleSaver changes. Continued use of the
+            service after revised terms are posted means you accept the updated
+            terms.
+          </p>
+
+          <p>
+            <strong style={{ color: dark }}>Contact:</strong>{" "}
+            Questions about these terms can be sent to{" "}
+            <a
+              href="mailto:support@stylesaverapp.com"
+              style={{ color: dark }}
+            >
+              support@stylesaverapp.com
+            </a>
+            .
+          </p>
+        </div>
+            <p>
+              <strong style={{ color: dark }}>
+                Service availability:
+              </strong>{" "}
+              We may update, modify, pause, or discontinue parts of StyleSaver as the
+              product evolves. We do not guarantee that every feature, retailer,
+              product, or promotion will always be available.
+            </p>
+
+            <p>
+              <strong style={{ color: dark }}>
+                Limitation of liability:
+              </strong>{" "}
+              To the fullest extent permitted by law, StyleSaver is not responsible
+              for losses arising from retailer transactions, unavailable products,
+              incorrect third-party information, service interruptions, or decisions
+              made using information displayed in the app.
+            </p>
+
+            <p>
+              <strong style={{ color: dark }}>Changes to these terms:</strong>{" "}
+              We may update these terms as StyleSaver changes. Continued use of the
+              service after revised terms are posted means you accept the updated
+              terms.
+            </p>
+
+            <p>
+              <strong style={{ color: dark }}>Contact:</strong>{" "}
+              Questions about these terms can be sent to{" "}
+              <a
+                href="mailto:support@stylesaverapp.com"
+                style={{ color: dark }}
+              >
+                support@stylesaverapp.com
+              </a>
+              .
+            </p>
+          </div>
+        )}
+      </section>
                 style={{
                   fontSize: 22,
                   fontWeight: 650,
