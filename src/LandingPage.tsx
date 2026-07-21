@@ -3,6 +3,7 @@ import homepageImg from "./images/homepage.png";
 import buildImg from "./images/build.png";
 import savedFavImg from "./images/saved-fav.png";
 import savedOutfitsImg from "./images/saved-outfits.png";
+import SSLogo from "./images/SS.png";
 
 export function LandingPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -143,14 +144,27 @@ export function LandingPage() {
             <a
               href="#top"
               style={{
-                color: dark,
-                fontWeight: 700,
-                fontSize: 18,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
                 textDecoration: "none",
-                letterSpacing: "-0.02em",
               }}
             >
-              StyleSaver
+              <img
+                src={SSLogo}
+                alt="StyleSaver logo"
+                style={{ width: 34, height: 34, display: "block" }}
+              />
+              <span
+                style={{
+                  color: dark,
+                  fontWeight: 700,
+                  fontSize: 18,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                StyleSaver
+              </span>
             </a>
 
             <nav
