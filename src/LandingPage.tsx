@@ -158,8 +158,8 @@ export function LandingPage() {
                 src={SSLogo}
                 alt="StyleSaver logo"
                 style={{
-                  width: 36,
-                  height: 36,
+                  width: 44,
+                  height: 44,
                   display: "block",
                   objectFit: "contain",
                 }}
