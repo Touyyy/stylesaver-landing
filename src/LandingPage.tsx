@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import homepageImg from "./images/homepage.png";
 import buildImg from "./images/build.png";
 import savedFavImg from "./images/saved-fav.png";
@@ -9,8 +9,28 @@ export function LandingPage() {
   const [privacyExpanded, setPrivacyExpanded] = useState(false);
   const [termsExpanded, setTermsExpanded] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const heroImages = [homepageImg, buildImg, savedOutfitsImg, savedFavImg];
+
+  const goToImage = (idx: number) => {
+    setActiveImage((idx + heroImages.length) % heroImages.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) goToImage(activeImage + 1);
+      else goToImage(activeImage - 1);
+    }
+    setTouchStart(null);
+  };
 
   useEffect(() => {
     try {
@@ -250,11 +270,22 @@ export function LandingPage() {
 
             <div style={{ flex: "1 1 300px", minWidth: 260, maxWidth: 340, margin: "0 auto" }}>
               <div
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
                 style={{
+                  position: "relative",
                   borderRadius: 20,
                   overflow: "hidden",
                   boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
                   border: `1px solid ${border}`,
+                }}
+                onMouseEnter={(e) => {
+                  const arrows = e.currentTarget.querySelectorAll(".hero-arrow");
+                  arrows.forEach((a) => ((a as HTMLElement).style.opacity = "1"));
+                }}
+                onMouseLeave={(e) => {
+                  const arrows = e.currentTarget.querySelectorAll(".hero-arrow");
+                  arrows.forEach((a) => ((a as HTMLElement).style.opacity = "0"));
                 }}
               >
                 <img
@@ -262,6 +293,54 @@ export function LandingPage() {
                   alt="StyleSaver app screenshot"
                   style={{ width: "100%", display: "block" }}
                 />
+
+                <button
+                  className="hero-arrow"
+                  onClick={() => goToImage(activeImage - 1)}
+                  aria-label="Previous image"
+                  style={{
+                    position: "absolute",
+                    left: 10,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "50%",
+                    border: "none",
+                    background: "rgba(0,0,0,0.55)",
+                    color: "#fff",
+                    fontSize: 16,
+                    cursor: "pointer",
+                    opacity: 0,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  &#8249;
+                </button>
+
+                <button
+                  className="hero-arrow"
+                  onClick={() => goToImage(activeImage + 1)}
+                  aria-label="Next image"
+                  style={{
+                    position: "absolute",
+                    right: 10,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "50%",
+                    border: "none",
+                    background: "rgba(0,0,0,0.55)",
+                    color: "#fff",
+                    fontSize: 16,
+                    cursor: "pointer",
+                    opacity: 0,
+                    transition: "opacity 0.2s ease",
+                  }}
+                >
+                  &#8250;
+                </button>
               </div>
 
               <div
@@ -278,8 +357,8 @@ export function LandingPage() {
                     onClick={() => setActiveImage(idx)}
                     aria-label={`Show image ${idx + 1}`}
                     style={{
-                      width: 8,
-                      height: 8,
+                      width: 10,
+                      height: 10,
                       borderRadius: "50%",
                       border: "none",
                       padding: 0,
