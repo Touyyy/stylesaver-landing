@@ -146,13 +146,23 @@ export function LandingPage() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
+                justifyContent: "center",
+                width: 48,
+                height: 48,
+                minWidth: 48,
+                minHeight: 48,
                 textDecoration: "none",
               }}
             >
               <img
                 src={SSLogo}
                 alt="StyleSaver logo"
-                style={{ width: 34, height: 34, display: "block" }}
+                style={{
+                  width: 36,
+                  height: 36,
+                  display: "block",
+                  objectFit: "contain",
+                }}
               />
             </a>
 
