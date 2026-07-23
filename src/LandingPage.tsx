@@ -72,6 +72,10 @@ export function LandingPage() {
       a: "StyleSaver currently features retailers available to shoppers in the United States. Support for additional countries may be added in the future.",
     },
     {
+      q: "Do you make money from the deals you show?",
+      a: "No. StyleSaver earns nothing from the links or stores we feature — no commissions, no affiliate links, no kickbacks. We show you the deals we find because we think they're genuinely good, not because we get paid for the click.",
+    },
+    {
       q: "How do I cancel my subscription?",
       a: "Open Settings on your iPhone, tap your name, select Subscriptions, and choose StyleSaver. You can cancel anytime before your next renewal.",
     },
